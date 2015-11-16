@@ -1,0 +1,205 @@
+<style>
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    
+    html {
+        overflow-y: scroll;
+    }
+    
+    .tos {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    p {
+        color: #c4c2df;
+        margin: 10px 0 10px;
+    }
+    
+    hr {
+        height: 2px;
+        border: none;
+        background-color: none;
+        background-image: -webkit-linear-gradient(left, rgba(136, 136, 144, 0) 0%, #f3f3f8 5%, #f3f3f8 95%, rgba(136, 136, 144, 0) 100%);
+        background-image: -moz-linear-gradient(left, rgba(136, 136, 144, 0) 0%, #f3f3f8 5%, #f3f3f8 95%, rgba(136, 136, 144, 0) 100%);
+        background-image: -ms-linear-gradient(left, rgba(136, 136, 144, 0) 0%, #f3f3f8 5%, #f3f3f8 95%, rgba(136, 136, 144, 0) 100%);
+        background-image: linear-gradient(to right, rgba(136, 136, 144, 0) 0%, #f3f3f8 5%, #f3f3f8 95%, rgba(136, 136, 144, 0) 100%);
+        display: block;
+        margin-top: 0.3rem;
+        margin-left: -20px;
+        margin-right: -20px;
+        opacity: 0.6;
+    }
+    
+    body {
+        background: #c1bdba;
+        font-family: 'Titillium Web', sans-serif;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #4285F4;
+        -webkit-transition: .5s ease;
+        transition: .5s ease;
+    }
+    
+    a:hover {
+        color: #4285F4;
+    }
+    
+    .form {
+        background: #283641;
+        padding: 40px;
+        max-width: 600px;
+        margin: 40px auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    }
+    
+    .tab-group {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px 0;
+    }
+    
+    .tab-group:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .tab-group li a {
+        display: block;
+        text-decoration: none;
+        padding: 15px;
+        background: rgba(160, 179, 176, 0.25);
+        color: #a0b3b0;
+        font-size: 20px;
+        float: left;
+        width: 50%;
+        text-align: center;
+        cursor: pointer;
+        -webkit-transition: .5s ease;
+        transition: .5s ease;
+    }
+    
+    .tab-group li a:hover {
+        background: #4285F4;
+        color: #ffffff;
+    }
+    
+    .tab-group .active a {
+        background: #4285F4;
+        color: #ffffff;
+    }
+    
+    .tab-content > div:last-child {
+        display: none;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #ffffff;
+        font-weight: 300;
+        margin: 0 0 0px;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        font-weight: 100;
+        margin: 0 0 5x;
+    }
+    
+    label {
+        left: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 22px;
+    }
+    
+    label .req {
+        margin: 2px;
+        color: #4285F4;
+    }
+    
+    input,
+    textarea {
+        font-size: 22px;
+        display: block;
+        width: 100%;
+        padding: 5px 10px;
+        background: none;
+        background-image: none;
+        border: 1px solid #a0b3b0;
+        color: #ffffff;
+        border-radius: 0;
+        transition: border-color .25s ease, box-shadow .25s ease;
+    }
+    
+    input:focus,
+    textarea:focus {
+        outline: 0;
+        border-color: #4285F4;
+    }
+    
+    textarea {
+        border: 2px solid #a0b3b0;
+        resize: vertical;
+    }
+    
+    .field-wrap {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    
+    .top-row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .top-row > div {
+        float: left;
+        width: 48%;
+        margin-right: 4%;
+    }
+    
+    .top-row > div:last-child {
+        margin: 0;
+    }
+    
+    .button {
+        border: 0;
+        outline: none;
+        border-radius: 0;
+        padding: 15px 0;
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        background: #4285F4;
+        color: #ffffff;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        -webkit-appearance: none;
+    }
+    
+    .button:hover,
+    .button:focus {
+        background: #4285F4;
+    }
+    
+    .button-block {
+        display: block;
+        width: 100%;
+    }
+    
+    .forgot {
+        margin-top: -20px;
+        text-align: right;
+    }
+
+</style><div class=form><ul class=tab-group><li class=tab><a href=#/login>Log In</a></li><li class="tab active"><a href=#/register>Sign Up</a></li></ul><div id=signup><h2>Sign Up To Learn About Our Products.</h2><hr><div ng-show=vm.error class="alert alert-danger">{{vm.error}}</div><form name=form ng-submit=vm.register() role=form autocomplete=off><div class=field-wrap ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }"><label>First Name<span class=req>*</span></label> <input type=text name=firstName id=firstName ng-model=vm.user.firstName required autocomplete=off></div><div class=field-wrap ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }"><label>Last Name<span class=req>*</span></label> <input type=text name=lastName id=Text1 ng-model=vm.user.lastName required autocomplete=off></div><div class=field-wrap ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }"><label>Phone<span class=req>*</span></label> <input type=text name=phone id=Text1 ng-model=vm.user.phone required autocomplete=off></div><div class=field-wrap ng-class="{ 'has-error': form.lastName.$dirty && form.company.$error.required }"><label>Company<span class=req>*</span></label> <input type=text name=company id=Text1 ng-model=vm.user.company required autocomplete=off></div><div class=field-wrap ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }"><label>Email Address<span class=req>*</span></label> <input type=text name=username id=username ng-model=vm.user.username required autocomplete=off></div><div class=field-wrap ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }"><label>Password<span class=req>*</span></label> <input type=password name=password id=password ng-model=vm.user.password required autocomplete=off></div><div class=form-actions><button type=submit class="button button-block" ng-disabled="form.$invalid || vm.dataLoading">Register</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="><p class=tos>Signing up signifies that you have read and agree to the <a href=/policy/tos>Terms of Service</a> and <a href=/policy/privacy>Privacy Policy</a>.</p></div></form></div></div>
